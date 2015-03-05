@@ -47,6 +47,13 @@ public class VariableTest {
 //		b13 = b11 + b12;	// + 연산자가 결과를 int 형 데이터로 주기 때문에 에러
 		b13 = (byte)(b11 + b12);
 		
+		
+		//------------------------------------
+		// 상수 변수 선언 => final 키워드를 앞에 붙임
+		final int finalInt;
+		finalInt = 3;	// 최초 1회만 값을 지정할 수 있음
+//		finalInt = 4;	// 에러
+		
 	}
 	
 	public static void method1() {
