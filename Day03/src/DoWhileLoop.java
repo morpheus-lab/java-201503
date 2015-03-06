@@ -8,6 +8,7 @@ public class DoWhileLoop {
 		
 		char c = 'a';	// 영문자의 경우, 문자의 코드는 ASCII 코드를 따름
 						// a~z (97~122), A-Z (65~90)
+						// http://www.asciitable.com 을 참조
 		
 		do {
 			System.out.print(c);
