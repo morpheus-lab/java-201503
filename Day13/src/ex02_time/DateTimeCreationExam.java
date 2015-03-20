@@ -1,0 +1,82 @@
+package ex02_time;
+
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
+
+public class DateTimeCreationExam {
+	
+	public static void main(String[] args) throws Exception {
+		
+		// 현재 날짜 얻기
+		LocalDate currentDate = LocalDate.now();
+		System.out.println("현재 날짜: " + currentDate);
+		
+		// 특정 일자 객체 얻기
+		LocalDate targetDate = LocalDate.of(2024, 5, 10);
+		System.out.println("목표 날짜: " + targetDate);
+		
+		// 현재 시간
+		LocalTime currentTime = LocalTime.now();
+		System.out.println("현재 시간: " + currentTime);
+		
+		// 특정 시간
+		LocalTime targetTime = LocalTime.of(6, 30, 0, 0);
+		System.out.println("목표 시간: " + targetTime);
+		
+		// 날짜 및 시간 얻기
+		LocalDateTime cDateTime = LocalDateTime.now();
+		System.out.println("현재 일시: " + cDateTime);
+		
+		LocalDateTime tDateTime = LocalDateTime.of(2024, 5, 10, 6, 30, 0, 0);
+		System.out.println("목표 일시: " + tDateTime);
+		
+		// UTC (협정 세계시), 시간존(TimeZone)
+		ZonedDateTime utcDateTime = ZonedDateTime.now(ZoneId.of("UTC"));
+		System.out.println("UTC 시각: " + utcDateTime);
+		
+		ZonedDateTime nyDateTime = ZonedDateTime.now(ZoneId.of("America/New_York"));
+		System.out.println("뉴욕 시각: " + nyDateTime);
+		
+		// 타임스탬프
+		Instant instant1 = Instant.now();
+		Thread.sleep(10);	// 실행을 10ms 동안 멈춤
+		Instant instant2 = Instant.now();
+		if (instant1.isBefore(instant2)) {
+			System.out.println("instant1이 빠릅니다.");
+		} else if (instant1.isAfter(instant2)) {
+			System.out.println("instant1이 늦습니다.");
+		} else {
+			System.out.println("동일한 시각입니다.");
+		}
+		
+		System.out.println("두 타임스탬프의 차이는: "
+					+ instant1.until(instant2, ChronoUnit.NANOS) + " ns");
+		
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
