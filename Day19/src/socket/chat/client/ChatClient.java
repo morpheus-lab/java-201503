@@ -1,4 +1,4 @@
-package socket.echo.client;
+package socket.chat.client;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,7 +9,7 @@ import java.net.Socket;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class EchoClient {
+public class ChatClient {
 	
 	public static void main(String[] args) {
 		// 키보드 입력 스트림
@@ -38,8 +38,10 @@ public class EchoClient {
 				out.flush();
 				// 서버로부터 메시지 수신, 화면에 출력
 				String msgFromServer = in.readLine();
-				if (msgFromServer == null) break;
-				System.out.println(msgFromServer);
+				if (msgFromServer == null) {	// 접속 끊김
+					break;
+				}
+				System.out.println("서버> " + msgFromServer);
 			}
 		} catch (IOException e) {
 		} catch (NoSuchElementException e) {
@@ -49,8 +51,10 @@ public class EchoClient {
 				try {
 					sock.close();
 				} catch (IOException e) {}
+			sc.close();
 		}
 		
+		System.out.println("접속이 종료되었습니다.");
 	}
 	
 }
